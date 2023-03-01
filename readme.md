@@ -1,62 +1,40 @@
-# Weather App Assignment
+# Weather App Assignment Report
 
 ## Introduction
-In this assignment, you will build a simple Java application that connects to a weather API and retrieves information about the current weather conditions of a given city.
+- In this project , I have bulit program that shows the weather data of any city in world
 
-## Objectives
-- Learn how to import and use a JSON library by reading its documentation
-- Parse and process JSON data in Java
-- Understand how the `getWeatherData()` function works and makes HTTP requests to retrieve data from the weather API
-- Use Git for version control and collaborate on a codebase
-- Use Maven or Gradle as package manager
-- Write a report on the assignment
+## Git
+1. I download Git Bash
+2. I create github account with email and name and password
+3. I fork "Second Assignment" to your repository
+4. I initialize  a branch named "Develop"
+5. I get SSH key from github to clone a GitHub my code
+6. I open Git Bash and use this instruction "git@github.com:cameronmcnz/spock-lizard-docker.git"
+7. Now my work with git was finish and I should push when my assingment was finish
 
-## Requirements
-- Java 8 or later
-- Git
-- Maven or Gradle
+## Server and API
+1. I sign up in "WatherApi" and get my API key
+2. Then the users can use it to send a city name and GET weather data of city
+3. The program first wait to user send one city that found in world (if the city does not exsit wait to user send another city)
+4. If the city exsits program,parse the JSON data that has been sent from server
 
-## Tasks
-1. Get an API key from https://www.weatherapi.com/. You need to sign up and verify your account.
-2. Fork this repository and clone the fork to your local machine.
-3. Create a new Git branch and switch to it (branch name: develop)
-4. Add a the org.json package (or any other JSON library that you plan to use) to Gradle. You must include the necessary code in the dependencies section of the `build.gradle` file to import the JSON library. Be sure to check https://www.mvnrepository.com/ for more information.
+## Explain Code
+1. In "getWeatherData" function first we received data from server with Api Key with connecting to server and request "GET"
+2. Then we use BufferedReader to read data from server
+3. Then we use StringBuilder to get input from use and if the name of city is not valid return null
+4. In "getTemperature" function we use result from "getWeatherData" function and create JSON Object that received data from server with "current" and get temperature in celcius with key "temp_c" and return degree
+5. In "getHumidity" function we use result from "getWeatherData" function and create JSON Object that received data from server with "current" and get humidity with key "humidity" and return hum
+6. In "getwindSpeed" function we use result from "getWeatherData" function and create JSON Object that received data from server with "current" and get windSpeed in kilometer per hour with key "wind_kph" and return speed
+7. In "getWindDirection" function we use result from "getWeatherData" function and create JSON Object that received data from server with "current" and get WindDirection with key "wind_dir" and return direction
+8. In all of upper function if the enterance data is not ok return null
+9. In main function first we declare and initialize string weather and city
+10. After we check if the city is valid we show (1-Humidity 2-Temperature 3-Wind Speed 4-Wind Direction) and if the city is not valid first we clear terminal and again take input from user
 
-5. Write a Java class `WeatherApp` that does the following:
-    - Prompts the user for a city name
-    - Parses the JSON response to extract the temperature and humidity
-    - Prints the temperature and humidity to the console
+## Testing and Evaluation
+- I first tryed to give some name of city to see program can handle the expected input or no;After that I send random string to check unexpected input from use
+- I also checked API service is case-sensitive or no and I see it was not case-sensitive
 
-6. Write a detailed report explaining the steps you took while working on this assignment
-7. Commit your changes and push them to your own fork on Github
+## Add In Future
+- The GUI added in future very soon
 
-## Notes
-1. This project uses Gradle by default, but you are allowed to create a new project and use Maven as your package manager instead.
-2. You can learn more about the Weather API by reading its official documentation at https://www.weatherapi.com/docs/. You can also experiment with the API by visiting the API Explorer tab in the website.
-3. Your report should primarily be focused on the research you conducted on the JSON data format and your chosen JSON library.
-4. Your report doesn't need to follow a specific report template, but it is recommended that you familiarize yourself with these templates before writing your report.
 
-## Evaluation
-- Your code should compile and run without any errors
-- Your code should correctly retrieve and display the temperature and humidity for a given city
-- Your code should be well-organized, readable, properly commented and follows clean code principles
-- You should use Git for version control and include meaningful commit messages
-
-**Attention: Using ChatGPT or any other AI generative model for any section of the assignment will result in a score of 0 without any warnings.**
-
-## Bonus Objectives
-1. Extend the WeatherApp class to also display the current wind speed and direction
-2. Add error handling to handle cases where the API returns an error or the city name is not found
-3. Revise your report to make it as comprehensive as possible with more details about your approach. 
-4. Implement a simple GUI (Graphical User Interface) for your project. This GUI should be able to display the city name and its temperature and humidity as text. There are several GUI libraries available for Java, But we would recommend using either Swing or JavaFX:
-
-    - Swing is an older UI toolkit that has been part of the Java Standard Edition (Java SE) since its inception. Swing is still widely used and remains a popular choice for building desktop applications, especially for applications that require a more lightweight UI toolkit.
-    - JavaFX, which is a more recent addition to the Java platform, is considered more powerful and provides more features and capabilities for building modern, visually rich desktop applications.
-
-## Submission
-- Push your code to your fork on Github
-- Upload your report as a PDF file to your fork on GitHub
-
-The deadline for submitting your code is wednesday, March 1 (10th of Esfand). Any commits made after this date will not affect your score.
-
-Good luck and happy coding!
